@@ -8,10 +8,10 @@ Below is a summary of each project notebook included:
 
 ### 🔬 Machine Learning & Deep Learning
 - **Nvidia_Deep_Learning.ipynb**  
-  Demonstrates various deep learning models using NVIDIA technologies and libraries, potentially including CUDA, cuDNN, or TensorRT.
+  Demonstrates various deep learning models using NVIDIA technologies and libraries, including CUDA, cuDNN, or TensorRT.
 
 - **Nvidia_recommenderIntelligentSystems.ipynb**  
-  A deep dive into intelligent recommendation systems with NVIDIA's frameworks, possibly using Merlin or related tools.
+  A deep dive into intelligent recommendation systems with NVIDIA's frameworks, using Merlin or related tools.
 
 - **asl_augmentation.ipynb**  
   Data augmentation techniques applied to American Sign Language datasets to improve model generalization.
@@ -25,7 +25,7 @@ Below is a summary of each project notebook included:
 
 ### 🌐 AI Research & Innovation
 - **StreamDiffusion.ipynb**  
-  Possibly a novel approach to diffusion models in real-time or streaming contexts.
+  approach to diffusion models in real-time or streaming contexts.
 
 ### 🌐 Quantum Research & Innovation
 
