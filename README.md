@@ -1,4 +1,4 @@
-# 🧠 Research Projects by Eloi Pérez Contreras
+# 🧠 Research Projects
 
 Welcome to my personal repository of data science, deep learning and research-based projects. This collection showcases a range of topics including deep learning, quantum computing, bioinformatics, recommendation systems, and scientific applications.
 
