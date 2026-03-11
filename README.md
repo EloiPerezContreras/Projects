@@ -59,7 +59,7 @@ Below is a summary of each project notebook included:
 
 
 
-  Tech Stack
+  ## Tech Stack
 
   Python, PyTorch, TensorFlow/Keras, Qibo, QuTiP, OpenMM, MDAnalysis, BioPython, Sentinel Hub, Folium, Triton Inference Server, CUDA/cuDNN
 
