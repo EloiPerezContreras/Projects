@@ -59,8 +59,50 @@ Below is a summary of each project notebook included:
 
 
 
-  ## Tech Stack
+# Tech Stack
 
-  Python, PyTorch, TensorFlow/Keras, Qibo, QuTiP, OpenMM, MDAnalysis, BioPython, Sentinel Hub, Folium, Triton Inference Server, CUDA/cuDNN
+                                                                                                                                                                                                                                              
+  ### Languages & Environments                                                                                                                                                                                                                                                
+  Python · Jupyter Notebook · CUDA/cuDNN                                                                                                                                                                                       
+                                                                                                                                                                                                              
+  ### Deep Learning & Optimization                                                                                                                                                                                                                
+  PyTorch · TensorFlow · Keras · Torchvision · Mixed Precision Training (AMP)
+
+  ### Generative AI & Diffusion Models
+
+  Diffusers (Hugging Face) · StreamDiffusion · Stable Diffusion
+
+  ### Quantum Computing
+
+  Qibo · QuTiP
+
+  ### Molecular Dynamics & Bioinformatics
+
+  OpenMM · MDAnalysis · BioPython · py3Dmol · AMBER Force Fields
+
+  ### Computational Physics & Symbolic Math
+
+  SymPy · PySR (Symbolic Regression) · mpmath · SciPy
+
+  ### Computer Vision & 3D Reconstruction
+
+  OpenCV · 4D Gaussian Splatting · xformers
+
+  ### Data Science & Machine Learning
+
+  NumPy · Pandas · scikit-learn · Hugging Face Datasets · Seaborn
+
+  ### Geospatial & Remote Sensing
+
+  Sentinel Hub · GeoPandas · Shapely · Folium
+
+  ### NVIDIA Ecosystem & MLOps
+
+  cuDF (RAPIDS) · NVTabular · Triton Inference Server
+
+  ### Visualization
+
+  Matplotlib · Seaborn · Folium · py3Dmol
+
 
 
