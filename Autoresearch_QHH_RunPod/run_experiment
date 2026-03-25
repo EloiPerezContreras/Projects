@@ -1,0 +1,92 @@
+#0. Reinstall  
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+
+# 1. Restore uv PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# 2. Restore data cache (if you saved it before stopping)
+cp -r /workspace/autoresearch_cache ~/.cache/autoresearch
+
+# 3. Go to repo
+cd /workspace/autoresearch
+
+# 4. Sync deps
+uv sync
+
+# 5. Quick test (Ctrl+C after 30s to verify it starts)
+uv run train.py
+
+
+if python.h errors
+  apt-get update && apt-get install python3.10-dev -y                                                                                                                                                                                         
+
+
+
+                                                                                                                                                                                                                                            
+  The autoresearch loop (agent modifies code → trains → checks results → keeps/discards → repeats) requires an AI agent running on the RunPod. You'd need to:                                                                                 
+                                                                                                                                                                                                                                              
+  1. Install Claude Code on the RunPod:                                                                                                                                                                                                       
+  curl -fsSL https://claude.ai/install.sh | sh                                                                                                                                                                                              
+                                                                                                                                                                                                                                              
+  2. Navigate to the repo and launch it:                                                                                                                                                                                                      
+  cd /workspace/autoresearch                                                                                                                                                                                                                  
+  claude                                                                                                                                                                                                                                      
+                                                                                                                                                                                                                                              
+  3. Then inside Claude Code, prompt:                                                                                                                                                                                                         
+  Read program.md and run 3 experiments. Stop after 3
+
+
+
+
+
+
+
+# 1. Make sure deps are installed                                                                                                                                                                                                           
+  uv sync                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                            
+  # 2. Make sure data is prepared                                                                                                                                                                                                             
+  uv run prepare.py                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+  # 3. Quick sanity check (will run for 15 min as-is, Ctrl+C after ~30s to verify it starts)                                                                                                                                                  
+  uv run train.py                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                              
+  If you see the training log printing step, loss, tok/s without NaN/crashes, it works. Then Ctrl+C and launch the real run. Want me to prepare the smoke test config changes (TIME_BUDGET=60, BATCH_SIZE=64) now so it's ready when you      
+  connect?
+                                                                                                                                                                                                                                              
+✻ Crunched for 1m 10s                                                                                                                                                                                                                       
+
+❯ yes                                                                                                                                                                                                                                         
+      
+● Update(train.py)                                                                                                                                                                                                                            
+  ⎿  Added 1 line, removed 1 line                                                                                                                                                                                                           
+      28  import torch.nn.functional as F                                                                                                                                                                                                     
+      29  
+      30  from prepare import MAX_SEQ_LEN, TIME_BUDGET, Tokenizer, make_dataloader, evaluate_bpb                                                                                                                                              
+      31 -TIME_BUDGET = 900  # Override: 15 min for QHH-SSM                                                                                                                                                                            
+      31 +TIME_BUDGET = 60   # Smoke test: 1 min per experiment                                                                                                                                                                               
+      32                                                    
+      33  # ---------------------------------------------------------------------------
+      34  # Hyperparameters
+
+● Update(train.py)
+  ⎿  Added 1 line, removed 1 line
+      36                                                                                                                                                                                                                                      
+      37  DEPTH        = 4        # number of QHH-SSM layers
+      38  D_MODEL      = 256      # model dimension                                                                                                                                                                                           
+      39 -BATCH_SIZE   = 256      # micro batch size                                                                                                                                                                                   
+      39 +BATCH_SIZE   = 64       # smoke test: safer for initial validation                                                                                                                                                           
+      40  TRAIN_SEQ    = 256      # training sequence length
+      41  DT           = 0.5      # HH discretization timestep
+      42  
+
+● Done. Current smoke test config:
+
+  - TIME_BUDGET = 60 (1 min per experiment)                                                                                                                                                                                                   
+  - BATCH_SIZE = 64
+                                                                                                                                                                                                                                              
+  Once you validate on RunPod, change them back to production values:
+                                                                                                                                                                                                                                              
+  TIME_BUDGET = 900   # 15 min                                                                                                                                                                                                                
+  BATCH_SIZE  = 256   # full H100 utilization
+
